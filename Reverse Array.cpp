@@ -6,45 +6,43 @@
 
 #include <iostream>  
 
-using namespace std;  
+using namespace std;
 
 
-void ReverseArray(const int arr[], int reversedArr[], int size) {
-    
+void ReverseArray(const int arr[], int* reversedArr, int size) {
     for (int i = 0; i < size; i++) {
-        reversedArr[i] = arr[size - 1 - i];  
+        reversedArr[i] = arr[size - 1 - i];
     }
 }
 
 
 void print(const int arr[], int size) {
     for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";  
+        cout << arr[i] << " ";
     }
-    cout << endl;  
+    cout << endl;
 }
 
 int main() {
     
     int originalArray[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    int size = 10;  
+    int size = 10;
 
-    
-    int reversedArray[10];  
+    int* reversedArray = new int[size];
 
-    
     cout << "Original array:" << endl;
-    print(originalArray, size);  
+    print(originalArray, size);
 
-    
-    ReverseArray(originalArray, reversedArray, size);  
+    ReverseArray(originalArray, reversedArray, size);
 
-    
     cout << "Reversed array:" << endl;
-    print(reversedArray, size);  
+    print(reversedArray, size);
+    
+    delete[] reversedArray;
 
-    return 0;  
+    return 0;
 }
+
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
