@@ -9,10 +9,17 @@
 using namespace std;
 
 
-void ReverseArray(const int arr[], int* reversedArr, int size) {
+int* ReverseArray(const int arr[], int size) {
+    
+    int* reversedArr = new int[size];
+
+    
     for (int i = 0; i < size; i++) {
         reversedArr[i] = arr[size - 1 - i];
     }
+
+    
+    return reversedArr;
 }
 
 
@@ -24,24 +31,26 @@ void print(const int arr[], int size) {
 }
 
 int main() {
-    
     int originalArray[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int size = 10;
 
-    int* reversedArray = new int[size];
+   
+    int* reversedArray = ReverseArray(originalArray, size);
 
+    
     cout << "Original array:" << endl;
     print(originalArray, size);
 
-    ReverseArray(originalArray, reversedArray, size);
-
+    
     cout << "Reversed array:" << endl;
     print(reversedArray, size);
+
     
     delete[] reversedArray;
 
     return 0;
 }
+
 
 
 
